@@ -11,27 +11,42 @@
     <body>
         <h1>Dash Board</h1>
          <div id="myDropDown">
+        <button id="textconfirm"><p class = "runp">Confirm Text</p></button>
         <form action="CustomerController" method ="GET">
         <select id="from">
         <option selected disabled value="0">Select Table</option>
         <option value="customer,">Customer</option>
         </select>
         <select id="select">
-  <!--      <option selected disabled value="0,"> What Columns Would You Like to See</option>
-            <option value="BUILD,all,">Select All</option>
+        <option selected disabled value="0,"> What Columns Would You Like to See</option>
+            <option value="all,">Select All</option>
             <option value="2">First, Last</option>
-            <option value="3">Full Names</option>   -->
+            <option value="3">Full Names</option>
         </select>
         
         <select id="additional1">
         <option selected disabled value="0,">Additional Parameter 1</option>
         <option value="1,">Where ID</option>
+        <option value="2,">Where First Name</option>
         </select>
         
         <select id="value1">
         <option selected disabled value="0,">Value 1</option>
-        <option value="1,">Equals 7</option>
+        <option value="id1,">Equals 1</option>
+        <option value="id2,">Equals 2</option>
+        <option value="id3,">Equals 3</option>
+        <option value="id4,">Equals 4</option>
+        <option value="id5,">Equals 5</option>
+        <option value="id6,">Equals 6</option>
+        <option value="id7,">Equals 7</option>
+        <option value="id8,">Equals 8</option>
+        <option value="id9,">Equals 9</option>
+        <option value="id10,">Equals 10</option>
+        <option value="fname4,">Is Mary</option>
         </select>
+        
+        <input type="text" id="text" name="text1">
+        
         
         <select id="additional2">
         <option selected disabled value="0,">Additional Parameter 2</option>
@@ -43,6 +58,7 @@
         
         <button name="command" class="runbutton" id="run"><p class = "runp">Run it!</p></button>
         </form>
+
         
     </div>
         

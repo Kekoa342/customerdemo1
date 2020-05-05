@@ -20,7 +20,6 @@ public class CustomerDbUtil {
 	
 	public List<Customer> getCustomers(int queryType) throws Exception {
 		
-		int i = 1;
 		List<Customer> customers = new ArrayList<>();
 		Connection myConn = null;
 		Statement myStmt = null;

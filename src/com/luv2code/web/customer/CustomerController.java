@@ -232,12 +232,18 @@ public class CustomerController extends HttpServlet {
 				
 				try {
 					String theCommand = request.getParameter("command");
+//					String text1 = request.getParameter("text1");
+//					if (text1 == null) {
+//						text1 = "";
+//					}
 					if (theCommand == null) {
 						theCommand = "BUILD,all,customer,0,0,0,0";
 					}
 					String[] commands = theCommand.split(",");
 					String param1 = commands[3];
 					String p1;
+//					String sQuote = "'";
+//					String fName = sQuote + text1 + sQuote;
 				
 				switch (param1) {
 				
@@ -250,6 +256,11 @@ public class CustomerController extends HttpServlet {
 					p1 = " where customer_id";
 					finalString += p1;
 					break;
+					
+//				case "2":
+//					p1 = " where first_name =";
+//					finalString += p1 + fName;
+//					break;
 					
 				default:
 					p1 = "";
@@ -275,9 +286,46 @@ public class CustomerController extends HttpServlet {
 					finalString += v1;
 					break;
 					
-				case "1":
+				case "id1":
+					v1 = " = 1";
+					finalString += v1;
+					break;
+				case "id2":
+					v1 = " = 2";
+					finalString += v1;
+					break;
+				case "id3":
+					v1 = " = 3";
+					finalString += v1;
+					break;
+				case "id4":
+					v1 = " = 4";
+					finalString += v1;
+					break;
+				case "id5":
+					v1 = " = 5";
+					finalString += v1;
+					break;
+				case "id6":
+					v1 = " = 6";
+					finalString += v1;
+					break;
+				case "id7":
 					v1 = " = 7";
 					finalString += v1;
+					break;
+				case "id8":
+					v1 = " = 8";
+					finalString += v1;
+					break;
+				case "id9":
+					v1 = " = 9";
+					finalString += v1;
+					break;
+				case "id10":
+					v1 = " = 10";
+					finalString += v1;
+					break;
 	
 				default:
 					v1 = "";

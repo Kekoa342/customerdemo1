@@ -23,20 +23,40 @@
             selectdd.innerHTML = "";
             data[from.value].forEach(element => {
                 console.log(element);
-                let elements2 = element.split(".");
+                let elements = element.split(".");
                 let opt = document.createElement("option");
-                opt.value = elements2[1];
-                opt.innerText = elements2[0];
+                opt.value = elements[1];
+                opt.innerText = elements[0];
                 selectdd.appendChild(opt);
             });
 
         }
+        
+        function updateValue1Options() {
+            let param1 = document.getElementById("additional1");
+           let value1 = document.getElementById("value1");
+
+       if (param1.value == "1,"){
+                       for(i=0; i< value1.options.length; i++){
+                    	   if (value1.options[i].value.includes("id")){
+                    		   value1[i].style.display = "block";
+                    	   }
+                    	   else {
+                    		   value1[i].style.display = "none";
+                    	   }
+                       }
+   }
+        }
         document.addEventListener("DOMContentLoaded", function () {
+        	document.getElementById("textconfirm").style.display = "none";
         	document.getElementById("select").style.display = "none";
         	document.getElementById("additional1").style.display = "none";
+        	document.getElementById("text").style.display = "none";
         	document.getElementById("value1").style.display = "none";
         	document.getElementById("additional2").style.display = "none";
         	document.getElementById("value2").style.display = "none";
+        	let text = document.getElementById("text");
+        	let textConfirm = document.getElementById("textconfirm");
         	let select = document.getElementById("select");
         	let from = document.getElementById("from");
         	let additional1 = document.getElementById("additional1");
@@ -54,7 +74,7 @@
     		from.addEventListener("change", function() {
     			console.log(from.value);
     			document.getElementById("select").style.display = "inline";
-    			getData("json/selectoptions", from.value).then(data => updateSelectOptions(data));
+    			//getData("json/selectoptions", from.value).then(data => updateSelectOptions(data));
     		})
     		select.addEventListener("change", function() {
     			console.log(select.value);
@@ -63,8 +83,23 @@
     			console.log(run.value);
     		})
     		additional1.addEventListener("change", function(){
+    			if (additional1.value == "2,") {
+    				document.getElementById("text").style.display = "inline";
+    				document.getElementById("textconfirm").style.display = "inline";
+    			} else {
+    			updateValue1Options();
     			document.getElementById("value1").style.display = "inline";
+    			}
     		})
+    		textConfirm.addEventListener("click", function() {
+    			console.log(text.value);
+    			run.value = "BUILD,"+ select.value + from.value + additional1.value + value1.value + additional2.value + value2.value;
+    			console.log(run.value);
+    			document.getElementById("textconfirm").style.display = "none";
+    			
+    		})
+    		
+    		
     		value1.addEventListener("change", function() {
     			document.getElementById("additional2").style.display = "inline";
     			run.value = "BUILD,"+ select.value + from.value + additional1.value + value1.value + additional2.value + value2.value;
